@@ -1,5 +1,4 @@
 local set = vim.o
-
 set.rnu = true
 set.number = true
 set.clipboard = "unnamed"
@@ -14,14 +13,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
-
 -- keybindings
 local opt = { noremap = true, silent = true }
 vim.keymap.set("n", "<C-l>", "<C-w>l", opt)
 vim.keymap.set("n", "<C-k>", "<C-w>k", opt)
 vim.keymap.set("n", "<C-j>", "<C-w>j", opt)
 vim.keymap.set("n", "<C-h>", "<C-w>h", opt)
-
 
 -- ESC 替换
 vim.keymap.set("i", "jj", "<esc>")
@@ -52,5 +49,40 @@ require("lazy").setup({
 		"RRethy/nvim-base16",
 		lazy = true,
 	},
+	-- Telescope
+	{
+		keys = {
+		      { "<leader>p", ":Telescope find_files<CR>", desc = "find files" },
+		      { "<leader>gr", ":Telescope live_grep<CR>", desc = "grep in files" },
+		      { "<leader>rs", ":Telescope resume<CR>", desc = "resume" },
+		      { "<leader>q", ":Telescope oldfiles<CR>", desc = "oldfiles" },
+		}, 
+		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	-- or                              , branch = '0.1.1',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	}, 
+	-- Mason
+	{
+		event = "VeryLazy",
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+		config = function()
+		    -- Mason Setup
+		    require("mason").setup()
+		end
+	},
+	-- {
+	--   "folke/persistence.nvim",
+	--   event = "BufReadPre", -- this will only start session saving when an actual file was opened
+	--   opts = {
+	-- 	    -- add any custom options here
+	-- 	 }
+	-- }
 })
 vim.cmd.colorscheme("base16-tender")
+
+-- Telescope keybind
+vim.keymap.set("n", "<Leader>[", "<C-o>", opt)
+vim.keymap.set("n", "<Leader>]", "<C-i>", opt)
+
+
