@@ -1,3 +1,6 @@
+require('options')
+require('keymaps')
+
 local set = vim.o
 set.rnu = true
 set.number = true
@@ -13,25 +16,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
--- keybindings
 local opt = { noremap = true, silent = true }
-vim.keymap.set("n", "<C-l>", "<C-w>l", opt)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opt)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opt)
-vim.keymap.set("n", "<C-h>", "<C-w>h", opt)
-
--- ESC 替换
-vim.keymap.set("i", "jj", "<esc>")
-
-vim.g.mapleader = " "
- 
--- 窗格划分快捷键
-vim.keymap.set("n", "<Leader>v", "<C-w>v", opt)
-vim.keymap.set("n", "<Leader>s", "<C-w>s", opt)
-
--- 可视行跳转按键 https://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
-vim.keymap.set("n", "j", [[v:count ? 'j' : 'gj']], { noremap = true, expr = true })
-vim.keymap.set("n", "k", [[v:count ? 'k' : 'gk']], { noremap = true, expr = true })
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -105,6 +90,19 @@ require("lazy").setup({
 	-- 	    -- add any custom options here
 	-- 	 }
 	-- }
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+		  vim.o.timeout = true
+		  vim.o.timeoutlen = 300
+		end,
+		opts = {
+		  -- your configuration comes here
+		  -- or leave it empty to use the default settings
+		  -- refer to the configuration section below
+		}
+	},
 })
 
 vim.cmd.colorscheme("base16-tender")
