@@ -1,0 +1,20 @@
+{
+    "workspace.library": [
+        "/home/csy/.local/share/nvim/lazy/neodev.nvim/types/nightly",
+        "/usr/local/share/nvim/runtime/lua",
+        "/home/csy/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/home/csy/.local/share/nvim/lazy/nvim-base16/lua",
+        "/home/csy/.local/share/nvim/lazy/mason.nvim/lua",
+        "/home/csy/.local/share/nvim/lazy/cmp-path/lua",
+        "/home/csy/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/home/csy/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/home/csy/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/home/csy/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/home/csy/.local/share/nvim/lazy/cmp-cmdline/lua",
+        "/home/csy/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/home/csy/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/home/csy/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/home/csy/.local/share/nvim/lazy/cmp-buffer/lua",
+        "${3rd}/luv/library"
+    ]
+}
